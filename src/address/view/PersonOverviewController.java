@@ -125,8 +125,8 @@ public class PersonOverviewController {
 	 */
 	private void kartyatValaszt(ImageView lapAPanelen, int jatekosIndex, int kartyaIndex) {
 		
-		System.out.println("Lerakott kartyak listája: " + lerakottKartyak);
-		System.out.println("Ki a hívó fél: a(z)" + (kiHivott + 1) + ". jatekos a hívó fél");
+//		System.out.println("Lerakott kartyak listája: " + lerakottKartyak);
+//		System.out.println("Ki a hívó fél: a(z)" + (kiHivott + 1) + ". jatekos a hívó fél");
 		if (lapAPanelen.getImage() != null) {
 
 			System.out.println("valasztott az " + (jatekosIndex + 1) + ". jatekos, az " + (kartyaIndex + 1)
@@ -136,8 +136,8 @@ public class PersonOverviewController {
 					jatekosok.get(jatekosIndex).getKez().get(kartyaIndex).getErtek(),
 					jatekosok.get(jatekosIndex).getKez().get(kartyaIndex).getKepCime());
 
-			System.out.println("a tmp kártya: " + tmp.toString());
-			System.out.println("lerakott kartya isempty (ha üres TRUE): " + lerakottKartyak.isEmpty());
+//			System.out.println("a tmp kártya: " + tmp.toString());
+//			System.out.println("lerakott kartya isempty (ha üres TRUE): " + lerakottKartyak.isEmpty());
 			if (lerakottKartyak.isEmpty()) {
 				lerakottKartyak.add(tmp);
 				System.out.println("lerakottKartyak lista tartalma: " + lerakottKartyak);
@@ -150,7 +150,7 @@ public class PersonOverviewController {
 				areaSource.appendText("A(z) " + (jatekosIndex + 1) + ". jatekos, a(z) " + (kartyaIndex + 1)
 						+ ". sarszamú kartyajat\n");
 				jatekosok.get(jatekosIndex).setKezNull(kartyaIndex, jatekosok.get(jatekosIndex).getKez());
-				System.out.println(jatekosok.get(jatekosIndex).getKez());
+//				System.out.println(jatekosok.get(jatekosIndex).getKez());
 
 				lapAPanelen.setImage(null);
 
@@ -166,7 +166,7 @@ public class PersonOverviewController {
 				areaSource.appendText("A(z) " + (jatekosIndex + 1) + ". jatekos, a(z) " + (kartyaIndex + 1)
 						+ ". sorszamú kartyajat\n");
 				jatekosok.get(jatekosIndex).setKezNull(kartyaIndex, jatekosok.get(jatekosIndex).getKez());
-				System.out.println(jatekosok.get(jatekosIndex).getKez());
+//				System.out.println(jatekosok.get(jatekosIndex).getKez());
 
 				lapAPanelen.setImage(null);
 				if (kiHivott == 0) {
@@ -179,8 +179,10 @@ public class PersonOverviewController {
 		} else {
 			System.out.println("ez bizony null");
 		}
-		System.out.println();
+		System.out.println("------------------");
 	}
+	
+
 	
 	/**
 	 * Az adott kör végén eldönti, hogy melyik játék nyeri a lapokat, valamint azt is, hogy ki lesz a következõ körben a hívó fél
@@ -230,6 +232,7 @@ public class PersonOverviewController {
 			System.out.println("player1 trash: " + player1Trash);
 			System.out.println("player2 trash: " + player2Trash);
 			lerakottKartyak.clear();
+			
 			if (!pakli.isEmpty()) {
 				kezFeltoltese();
 			}
@@ -241,6 +244,19 @@ public class PersonOverviewController {
 				masodikJatekosAHivoKor.setOpacity(1);
 				elsoJatekosAHivoKor.setOpacity(0);
 			}
+		}
+	}
+	
+    /**
+     * Az adott kör végén a hiányzó lapokat feltölti a pakliból
+     */
+	private void kezFeltoltese() {
+		if (kiHivott == 0) {
+			egyesJatekosKezetTolti();
+			kettesJatekosKezetTolti();
+		} else if (kiHivott == 1) {
+			kettesJatekosKezetTolti();
+			egyesJatekosKezetTolti();
 		}
 	}
 	
@@ -335,6 +351,24 @@ public class PersonOverviewController {
 			}
 		}
 	}
+	
+	public void feltol() {
+		System.out.println("SIZE2: "+lerakottKartyak.size());
+		System.out.println("kihovott: "+ kiHivott);
+		if (lerakottKartyak.size() == 2) {
+			lerakottKartyak.clear();
+			if (!pakli.isEmpty()) {
+				kezFeltoltese();
+			}
+			if (kiHivott == 0) {
+				elsoJatekosAHivoKor.setOpacity(1);
+				masodikJatekosAHivoKor.setOpacity(0);
+			} else if (kiHivott == 1) {
+				masodikJatekosAHivoKor.setOpacity(1);
+				elsoJatekosAHivoKor.setOpacity(0);
+			}
+		}
+	}
     /**
      * A pakli lapjainak és a játékosok kezének elfogyása után eldönti melyik játékos nyert
      */
@@ -390,29 +424,18 @@ public class PersonOverviewController {
 			}
 
 		}
-		System.out.println("JATEKOS 1 PONTOK: "+ player1Pontok);
-		System.out.println("JATEKOS 2 PONTOK: "+ player2Pontok);
+//		System.out.println("JATEKOS 1 PONTOK: "+ player1Pontok);
+//		System.out.println("JATEKOS 2 PONTOK: "+ player2Pontok);
 		
 	}
 	
-    /**
-     * Az adott kör végén a hiányzó lapokat feltölti a pakliból
-     */
-	private void kezFeltoltese() {
-		if (kiHivott == 0) {
-			egyesJatekosKezetTolti();
-			kettesJatekosKezetTolti();
-		} else if (kiHivott == 1) {
-			kettesJatekosKezetTolti();
-			egyesJatekosKezetTolti();
-		}
-	}
+
     /**
      * Pakli beállítása, játékos és kezdõkezek beállítása, játék kezdése
      */
 	@FXML
 	void jatekKezdese_() throws Exception{
-		game.jatekotKezd(pakli, kezdoKez1, kezdoKez2, jatekosok);
+		game.jatekotKezd(pakli, kezdoKez1, kezdoKez2, jatekosok, kiHivott);
 	
 		Image card = new Image(jatekosok.get(0).getKez().get(0).getKepCime());		
 		GP1P1.setImage(card);
@@ -441,91 +464,16 @@ public class PersonOverviewController {
 		player2Trash.clear();
 		kiHivott = 0;		
 	}
-//	@FXML
-//	private void jatekotKezd() throws Exception {
-//		pakli.clear();
-//    	
-////		pakli.addAll(xmlReadKartya.xmlKartyaIn());
-////		System.out.println(pakli);
-//		
-//
-//		pakli.add(new Kartya("piros", "7", "piros_7.png"));
-//		pakli.add(new Kartya("piros", "9", "piros_9.png"));
-//		pakli.add(new Kartya("zold", "7", "zold_7.png"));
-//		pakli.add(new Kartya("zold", "8", "zold_8.png"));
-//
-//		pakli.add(new Kartya("piros", "8", "piros_8.png"));
-//		pakli.add(new Kartya("piros", "10", "piros_10.png"));
-//		pakli.add(new Kartya("zold", "9", "zold_9.png"));
-//		pakli.add(new Kartya("zold", "10", "zold_10.png"));
-//
-//		pakli.add(new Kartya("piros", "14", "piros_asz.png"));
-//		pakli.add(new Kartya("piros", "13", "piros_kiraly.png"));
-//		pakli.add(new Kartya("zold", "14", "zold_asz.png"));
-//		pakli.add(new Kartya("makk", "10", "makk_10.png"));
-//		pakli.add(new Kartya("makk", "11", "makk_also.png"));
-//		pakli.add(new Kartya("makk", "12", "makk_felso.png"));
-//		
-////		pakli.add(new Kartya("piros", "7", "piros_7.png"));
-////		pakli.add(new Kartya("piros", "8", "piros_8.png"));
-////		pakli.add(new Kartya("piros", "9", "piros_9.png"));
-////		pakli.add(new Kartya("piros", "10", "piros_10.png"));
-//		
-//		Collections.shuffle(pakli);
-//		kezdoKez1.clear();
-//
-//		for (int i = 0; i < 4; i++) {
-//			kezdoKez1.add(pakli.get(i));
-//		}
-//
-//		kezdoKez2.clear();
-//		for (int i = 4; i < 8; i++) {
-//			kezdoKez2.add(pakli.get(i));
-//		}
-//
-//		jatekosok.clear();
-//		jatekosok.add(new Player("Player1", kezdoKez1));
-//		jatekosok.add(new Player("Player2", kezdoKez2));
-//
-//		for (int i = 0; i < 8; i++) {
-//			pakli.remove(0);
-//		}
-//		
-//
-//		Image card = new Image(jatekosok.get(0).getKez().get(0).getKepCime());
-//		GP1P1.setImage(card);
-//		card = new Image(jatekosok.get(0).getKez().get(1).getKepCime());
-//		GP1P2.setImage(card);
-//		card = new Image(jatekosok.get(0).getKez().get(2).getKepCime());
-//		GP1P3.setImage(card);
-//		card = new Image(jatekosok.get(0).getKez().get(3).getKepCime());
-//		GP1P4.setImage(card);
-//
-//		card = new Image(jatekosok.get(1).getKez().get(0).getKepCime());
-//		GP2P1.setImage(card);
-//		card = new Image(jatekosok.get(1).getKez().get(1).getKepCime());
-//		GP2P2.setImage(card);
-//		card = new Image(jatekosok.get(1).getKez().get(2).getKepCime());
-//		GP2P3.setImage(card);
-//		card = new Image(jatekosok.get(1).getKez().get(3).getKepCime());
-//		GP2P4.setImage(card);
-//
-//		card = new Image("hatlap.png");
-//		valasztottKartya1.setImage(card);
-//		valasztottKartya2.setImage(card);
-//		areaSource.clear();
-//		areaSource.appendText("A játék elkezdõdött!\n");
-//		player1Trash.clear();
-//		player2Trash.clear();
-//		kiHivott = 0;
-//
-//	}
+
+
 
 	@FXML
 	private void kattintasElsoKartyan() {
 		if (kiHivott == 0) {
 			kartyatValaszt(GP1P1, 0, 0);
-			dontMelyikNyer();
+			dontMelyikNyer();	
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
@@ -535,6 +483,8 @@ public class PersonOverviewController {
 		if (kiHivott == 0) {
 			kartyatValaszt(GP1P2, 0, 1);
 			dontMelyikNyer();
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
@@ -544,6 +494,8 @@ public class PersonOverviewController {
 		if (kiHivott == 0) {
 			kartyatValaszt(GP1P3, 0, 2);
 			dontMelyikNyer();
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
@@ -553,6 +505,8 @@ public class PersonOverviewController {
 		if (kiHivott == 0) {
 			kartyatValaszt(GP1P4, 0, 3);
 			dontMelyikNyer();
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
@@ -562,6 +516,8 @@ public class PersonOverviewController {
 		if (kiHivott == 1) {
 			kartyatValaszt(GP2P1, 1, 0);
 			dontMelyikNyer();
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
@@ -571,6 +527,8 @@ public class PersonOverviewController {
 		if (kiHivott == 1) {
 			kartyatValaszt(GP2P2, 1, 1);
 			dontMelyikNyer();
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
@@ -580,6 +538,8 @@ public class PersonOverviewController {
 		if (kiHivott == 1) {
 			kartyatValaszt(GP2P3, 1, 2);
 			dontMelyikNyer();
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
@@ -589,6 +549,8 @@ public class PersonOverviewController {
 		if (kiHivott == 1) {
 			kartyatValaszt(GP2P4, 1, 3);
 			dontMelyikNyer();
+//			game.dontMelyikNyer(lerakottKartyak, player1Trash, player2Trash, areaSource, kiHivott);
+//			feltol();
 			kiNyert();
 		}
 	}
