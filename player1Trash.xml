@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <kartya>
-    <ertek>8</ertek>
-    <kepCime>tok_8.png</kepCime>
-    <szin>tok</szin>
+    <ertek>10</ertek>
+    <kepCime>piros_10.png</kepCime>
+    <szin>piros</szin>
 </kartya>

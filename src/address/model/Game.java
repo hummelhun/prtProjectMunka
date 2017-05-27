@@ -5,6 +5,7 @@ import java.util.Collections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import xml.xmlReadKartya;
 
@@ -20,6 +21,8 @@ public class Game {
 
 	public ObservableList<Kartya> player1Trash = FXCollections.observableArrayList();
 	public ObservableList<Kartya> player2Trash = FXCollections.observableArrayList();
+	
+	public TextArea areaSource;
 	
 	public Game() {}
 	
@@ -153,6 +156,64 @@ public class Game {
 			pakli.remove(0);
 		}
 
+	}
+	public void dontMelyikNyer() {
+		if (lerakottKartyak.size() == 2) {
+
+			if (kiHivott == 0) {
+				if (lerakottKartyak.get(1).getErtek() == lerakottKartyak.get(0).getErtek()
+						|| lerakottKartyak.get(1).getErtek() == "7") {
+					for (Kartya kartya : lerakottKartyak) {
+						player2Trash.add(kartya);
+					}					
+					kiHivott = 1;
+					areaSource.appendText("A 2. Játékos nyerte a kört\n");
+					areaSource.appendText("get(0): "+lerakottKartyak.get(0).getErtek()+"\n");
+					areaSource.appendText("get(1): "+lerakottKartyak.get(1).getErtek()+"\n");					
+					
+				} else {
+					for (Kartya kartya : lerakottKartyak) {
+						player1Trash.add(kartya);
+					}
+					areaSource.appendText("A 1. Játékos nyerte a kört\n");
+					areaSource.appendText("get(0): "+lerakottKartyak.get(0).getErtek()+"\n");
+					areaSource.appendText("get(1): "+lerakottKartyak.get(1).getErtek()+"\n");
+				}
+			} else if (kiHivott == 1) {
+				if (lerakottKartyak.get(1).getErtek() == lerakottKartyak.get(0).getErtek()
+						|| lerakottKartyak.get(1).getErtek() == "7") {
+					for (Kartya kartya : lerakottKartyak) {
+						player1Trash.add(kartya);
+					}
+					kiHivott = 0;
+					areaSource.appendText("A 1. Játékos nyerte a kört\n");
+					areaSource.appendText("get(0): "+lerakottKartyak.get(0).getErtek()+"\n");
+					areaSource.appendText("get(1): "+lerakottKartyak.get(1).getErtek()+"\n");
+				} else {
+					for (Kartya kartya : lerakottKartyak) {
+						player2Trash.add(kartya);
+					}
+					areaSource.appendText("A 2. Játékos nyerte a kört\n");
+					areaSource.appendText("get(0): "+lerakottKartyak.get(0).getErtek()+"\n");
+					areaSource.appendText("get(1): "+lerakottKartyak.get(1).getErtek()+"\n");
+				}
+
+			}
+			System.out.println("player1 trash: " + player1Trash);
+			System.out.println("player2 trash: " + player2Trash);
+			lerakottKartyak.clear();
+//			if (!pakli.isEmpty()) {
+//				kezFeltoltese();
+//			}
+//			if (kiHivott==0) {
+//				elsoJatekosAHivoKor.setOpacity(1);
+//				masodikJatekosAHivoKor.setOpacity(0);
+//			}
+//			else if (kiHivott==1) {
+//				masodikJatekosAHivoKor.setOpacity(1);
+//				elsoJatekosAHivoKor.setOpacity(0);
+//			}
+		}
 	}
 
 }

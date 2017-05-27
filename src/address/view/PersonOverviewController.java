@@ -108,37 +108,7 @@ public class PersonOverviewController {
 		areaDestiny.setText(areaSource.getText());
 	}
 	
-	@FXML
-	void jatekKezdese_() throws Exception{
-		game.jatekotKezd(pakli, kezdoKez1, kezdoKez2, jatekosok);
-	
-		Image card = new Image(jatekosok.get(0).getKez().get(0).getKepCime());		
-		GP1P1.setImage(card);
-		card = new Image(jatekosok.get(0).getKez().get(1).getKepCime());
-		GP1P2.setImage(card);
-		card = new Image(jatekosok.get(0).getKez().get(2).getKepCime());
-		GP1P3.setImage(card);
-		card = new Image(jatekosok.get(0).getKez().get(3).getKepCime());
-		GP1P4.setImage(card);
 
-		card = new Image(jatekosok.get(1).getKez().get(0).getKepCime());
-		GP2P1.setImage(card);
-		card = new Image(jatekosok.get(1).getKez().get(1).getKepCime());
-		GP2P2.setImage(card);
-		card = new Image(jatekosok.get(1).getKez().get(2).getKepCime());
-		GP2P3.setImage(card);
-		card = new Image(jatekosok.get(1).getKez().get(3).getKepCime());
-		GP2P4.setImage(card);
-
-		card = new Image("hatlap.png");
-		valasztottKartya1.setImage(card);
-		valasztottKartya2.setImage(card);
-		areaSource.clear();
-		areaSource.appendText("A játék elkezdõdött!\n");
-		player1Trash.clear();
-		player2Trash.clear();
-		kiHivott = 0;		
-	}
 	
 	// Reference to the main application.
 	private MainApp mainApp;
@@ -440,6 +410,37 @@ public class PersonOverviewController {
     /**
      * Pakli beállítása, játékos és kezdõkezek beállítása, játék kezdése
      */
+	@FXML
+	void jatekKezdese_() throws Exception{
+		game.jatekotKezd(pakli, kezdoKez1, kezdoKez2, jatekosok);
+	
+		Image card = new Image(jatekosok.get(0).getKez().get(0).getKepCime());		
+		GP1P1.setImage(card);
+		card = new Image(jatekosok.get(0).getKez().get(1).getKepCime());
+		GP1P2.setImage(card);
+		card = new Image(jatekosok.get(0).getKez().get(2).getKepCime());
+		GP1P3.setImage(card);
+		card = new Image(jatekosok.get(0).getKez().get(3).getKepCime());
+		GP1P4.setImage(card);
+
+		card = new Image(jatekosok.get(1).getKez().get(0).getKepCime());
+		GP2P1.setImage(card);
+		card = new Image(jatekosok.get(1).getKez().get(1).getKepCime());
+		GP2P2.setImage(card);
+		card = new Image(jatekosok.get(1).getKez().get(2).getKepCime());
+		GP2P3.setImage(card);
+		card = new Image(jatekosok.get(1).getKez().get(3).getKepCime());
+		GP2P4.setImage(card);
+
+		card = new Image("hatlap.png");
+		valasztottKartya1.setImage(card);
+		valasztottKartya2.setImage(card);
+		areaSource.clear();
+		areaSource.appendText("A játék elkezdõdött!\n");
+		player1Trash.clear();
+		player2Trash.clear();
+		kiHivott = 0;		
+	}
 //	@FXML
 //	private void jatekotKezd() throws Exception {
 //		pakli.clear();
@@ -525,6 +526,7 @@ public class PersonOverviewController {
 		if (kiHivott == 0) {
 			kartyatValaszt(GP1P1, 0, 0);
 			dontMelyikNyer();
+			kiNyert();
 		}
 	}
 

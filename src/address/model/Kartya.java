@@ -28,9 +28,7 @@ public class Kartya {
 		this.kepCime = new SimpleStringProperty(kepCime);
 	}
 	
-	public int kartyaSzorzas(int a, int b){		
-		return a*b;
-	}
+
 	@XmlElement(name = "szin")
 	public void setSzin(String szin) {
 		this.szin.set(szin);
