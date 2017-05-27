@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pakli>
+<kartya>
+	<szin>piros</szin>
+	<ertek>7</ertek>
+	<kepCime>piros_7.png</kepCime>
+</kartya>
+<kartya>
+	<szin>piros</szin>
+	<ertek>9</ertek>
+	<kepCime>piros_9.png</kepCime>
+</kartya>
+<kartya>
+	<szin>zold</szin>
+	<ertek>7</ertek>
+	<kepCime>zold_7.png</kepCime>
+</kartya>
+<kartya>
+	<szin>zold</szin>
+	<ertek>8</ertek>
+	<kepCime>zold_8.png</kepCime>
+</kartya>
+<kartya>
+	<szin>piros</szin>
+	<ertek>8</ertek>
+	<kepCime>piros_8.png</kepCime>
+</kartya>
+<kartya>
+	<szin>piros</szin>
+	<ertek>10</ertek>
+	<kepCime>piros_10.png</kepCime>
+</kartya>
+<kartya>
+	<szin>zold</szin>
+	<ertek>9</ertek>
+	<kepCime>zold_9.png</kepCime>
+</kartya>
+<kartya>
+	<szin>zold</szin>
+	<ertek>10</ertek>
+	<kepCime>zold_10.png</kepCime>
+</kartya>
+<kartya>
+	<szin>piros</szin>
+	<ertek>14</ertek>
+	<kepCime>piros_asz.png</kepCime>
+	
+</kartya>
+<kartya>
+	<szin>piros</szin>
+	<ertek>13</ertek>
+	<kepCime>piros_kiraly.png</kepCime>
+	
+</kartya>
+<kartya>
+	<szin>zold</szin>
+	<ertek>14</ertek>
+	<kepCime>zold_asz.png</kepCime>	
+</kartya>
+<kartya>
+	<szin>makk</szin>
+	<ertek>10</ertek>
+	<kepCime>makk_10.png</kepCime>
+</kartya>
+
+</pakli>
