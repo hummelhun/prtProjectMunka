@@ -89,9 +89,6 @@ public class Game {
 
 	public int kiHivott;
 	
-	
-	
-	
 	public void jatekotKezd(ObservableList<Kartya> pakli, ObservableList<Kartya> kezdoKez1, ObservableList<Kartya> kezdoKez2, ObservableList<Player> jatekosok) throws Exception {
 		pakli.clear();
 		
@@ -155,10 +152,7 @@ public class Game {
 		for (int i = 0; i < 8; i++) {
 			pakli.remove(0);
 		}
-		System.out.println("pakli"+pakli);
-		System.out.println(kezdoKez1);
-		System.out.println(kezdoKez2);
-		System.out.println(jatekosok.get(0).getKez());
+
 	}
 
 }

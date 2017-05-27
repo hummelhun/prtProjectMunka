@@ -140,10 +140,6 @@ public class PersonOverviewController {
 		kiHivott = 0;		
 	}
 	
-	
-	
-	
-
 	// Reference to the main application.
 	private MainApp mainApp;
 
