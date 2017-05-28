@@ -110,7 +110,7 @@
                         <Image url="@/tok_asz.jpg" />
                      </image></ImageView>
                   <TextArea fx:id="areaSource" layoutX="14.0" layoutY="53.0" prefHeight="458.0" prefWidth="340.0" />
-                  <TextArea fx:id="areaDestiny" layoutX="14.0" layoutY="520.0" prefHeight="58.0" prefWidth="340.0" />
+                  <TextArea fx:id="areaDestiny" layoutX="14.0" layoutY="520.0" prefHeight="40.0" prefWidth="340.0" />
                   <Button layoutX="271.0" layoutY="19.0" mnemonicParsing="false" text="Betöltés" />
                   <Button layoutX="205.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#kiMentes" text="Mentés" />
                </children>

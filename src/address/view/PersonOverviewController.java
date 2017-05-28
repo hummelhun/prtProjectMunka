@@ -562,10 +562,7 @@ public class PersonOverviewController {
 		xmlWriteKartya.xmlKartyaOut(player2Trash, "player2Trash.xml");
 		
 	}
-
 	
-	
-
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}

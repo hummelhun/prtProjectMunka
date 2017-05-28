@@ -97,8 +97,8 @@ public class Game {
 			ObservableList<Kartya> kezdoKez2, ObservableList<Player> jatekosok, int kiHivott) throws Exception {
 		pakli.clear();
 
-		// pakli.addAll(xmlReadKartya.xmlKartyaIn());
-		// System.out.println(pakli);
+//		 pakli.addAll(xmlReadKartya.xmlKartyaIn());
+//		 System.out.println(pakli);
 		pakli.add(new Kartya("piros", "7", "piros_7.png"));
 		pakli.add(new Kartya("piros", "9", "piros_9.png"));
 		pakli.add(new Kartya("zold", "7", "zold_7.png"));
@@ -114,29 +114,29 @@ public class Game {
 		pakli.add(new Kartya("zold", "14", "zold_asz.png"));
 		pakli.add(new Kartya("makk", "10", "makk_10.png"));
 
-		// pakli.add(new Kartya("piros", "11", "piros_also.png"));
-		// pakli.add(new Kartya("piros", "12", "piros_felso.png"));
-		//
-		// pakli.add(new Kartya("zold", "11", "piros_also.png"));
-		// pakli.add(new Kartya("zold", "12", "piros_felso.png"));
-		// pakli.add(new Kartya("zold", "13", "piros_kiraly.png"));
-		//
-		// pakli.add(new Kartya("makk", "7", "makk_7.png"));
-		// pakli.add(new Kartya("makk", "8", "makk_8.png"));
-		// pakli.add(new Kartya("makk", "9", "makk_9.png"));
-		// pakli.add(new Kartya("makk", "11", "makk_also.png"));
-		// pakli.add(new Kartya("makk", "12", "makk_felso.png"));
-		// pakli.add(new Kartya("makk", "13", "makk_kiraly.png"));
-		// pakli.add(new Kartya("makk", "14", "makk_asz.png"));
-		//
-		// pakli.add(new Kartya("tok", "7", "tok_7.png"));
-		// pakli.add(new Kartya("tok", "8", "tok_8.png"));
-		// pakli.add(new Kartya("tok", "9", "tok_9.png"));
-		// pakli.add(new Kartya("tok", "10", "tok_10.png"));
-		// pakli.add(new Kartya("tok", "11", "tok_also.png"));
-		// pakli.add(new Kartya("tok", "12", "tok_felso.png"));
-		// pakli.add(new Kartya("tok", "13", "tok_kiraly.png"));
-		// pakli.add(new Kartya("tok", "14", "tok_asz.png"));
+		 pakli.add(new Kartya("piros", "11", "piros_also.png"));
+		 pakli.add(new Kartya("piros", "12", "piros_felso.png"));
+		
+		 pakli.add(new Kartya("zold", "11", "piros_also.png"));
+		 pakli.add(new Kartya("zold", "12", "piros_felso.png"));
+		 pakli.add(new Kartya("zold", "13", "piros_kiraly.png"));
+		
+		 pakli.add(new Kartya("makk", "7", "makk_7.png"));
+		 pakli.add(new Kartya("makk", "8", "makk_8.png"));
+		 pakli.add(new Kartya("makk", "9", "makk_9.png"));
+		 pakli.add(new Kartya("makk", "11", "makk_also.png"));
+		 pakli.add(new Kartya("makk", "12", "makk_felso.png"));
+		 pakli.add(new Kartya("makk", "13", "makk_kiraly.png"));
+		 pakli.add(new Kartya("makk", "14", "makk_asz.png"));
+		
+		 pakli.add(new Kartya("tok", "7", "tok_7.png"));
+		 pakli.add(new Kartya("tok", "8", "tok_8.png"));
+		 pakli.add(new Kartya("tok", "9", "tok_9.png"));
+		 pakli.add(new Kartya("tok", "10", "tok_10.png"));
+		 pakli.add(new Kartya("tok", "11", "tok_also.png"));
+		 pakli.add(new Kartya("tok", "12", "tok_felso.png"));
+		 pakli.add(new Kartya("tok", "13", "tok_kiraly.png"));
+		 pakli.add(new Kartya("tok", "14", "tok_asz.png"));
 
 		Collections.shuffle(pakli);
 		kezdoKez1.clear();
